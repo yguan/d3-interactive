@@ -9,12 +9,12 @@ define(function (require, exports, module) {
 
     function render() {
         $('#viewport').append(presidentViewTpl);
-        var chart = presidentChart.create('#president-chart', presidentDW.parties);
+        presidentChart.create('#president-chart', presidentDW.parties);
+
         $('#slider').change(function (ev) {
             var year = $(this).val();
             $('#start-year').text(year);
             presidentDW.filterByYearTookOffice(year);
-            chart.refresh();
         });
     }
 

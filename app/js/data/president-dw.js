@@ -1,10 +1,11 @@
-/*global $,define,require,d3,crossfilter */
+/*global $,define,require,d3,crossfilter,MicroEvent */
 
 define(['exports', 'data/president-data'], function (exports, presidents) {
     'use strict';
 
     var ymdFormat = d3.time.format("%Y-%m-%d"),
-        dimensions;
+        dimensions,
+        parties;
 
 
     function processData(data) {
@@ -39,11 +40,14 @@ define(['exports', 'data/president-data'], function (exports, presidents) {
     }
 
     function filterByYearTookOffice(year) {
-        return dimensions.byTookOffice.filter([new Date(year, 1, 1), Infinity]);
+        dimensions.byTookOffice.filter([new Date(year, 1, 1), Infinity]);
+        parties.trigger('change');
     }
 
     dimensions = processData(presidents.data);
+    parties = dimensions.byParty.group().top(Infinity);
+    MicroEvent.mixin(parties);
 
-    exports.parties = dimensions.byParty.group().top(Infinity);
+    exports.parties = parties;
     exports.filterByYearTookOffice = filterByYearTookOffice;
 });

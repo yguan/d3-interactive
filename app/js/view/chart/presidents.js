@@ -100,6 +100,10 @@ define(function (require, exports, module) {
 
         }
 
+        parties.bind('change', function () {
+            refresh();
+        });
+
         refresh();
 
         return {
@@ -111,7 +115,6 @@ define(function (require, exports, module) {
     exports.create = function (container, parties) {
         return barchart(container, parties);
     };
-
 
 
 });
