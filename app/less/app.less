@@ -1,0 +1,84 @@
+@import "common";
+@import "chart";
+
+@view-padding: 70px;
+@default-icon-size: 20px;
+
+.default-font {
+  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+  font-size: 14px;
+};
+
+.default-body-background-color {
+  background-color: white;
+}
+
+.default-fa-style(@fontSize: 14px) {
+  .fa {
+    color: #428bca;
+    font-size: @fontSize;
+    .hand-cursor;
+
+    &:hover {
+      color: #285e8e;
+    }
+
+    &.text-icon {
+      font-size: 25px;
+      font-weight: bold;
+    }
+  }
+}
+
+.scroll-bar-style;
+
+html {
+  overflow: auto;
+}
+
+body {
+  .default-font;
+  color: #868c92;
+  .default-body-background-color;
+  -webkit-print-color-adjust: exact;
+}
+
+h4 {
+  margin: 0 0 10px 0;
+}
+
+.attention-text {
+  font-weight: bold;
+  color: orange;
+}
+
+.sidebar-menu {
+  position: fixed;
+  left: 5px;
+  top: 10px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 50px;
+  text-align: center;
+  opacity: 0.2;
+  background-color: white;
+  .rounded-corners(5px);
+
+  &:hover {
+    opacity: 1;
+  }
+
+  .default-fa-style(40px);
+
+  .fa-cog {
+    padding-bottom: 10px;
+  }
+}
+
+.popover-title {
+  display: none;
+}
+.popover {
+  max-width: 1000px !important;
+}
