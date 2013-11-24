@@ -1,11 +1,11 @@
 {
-    "name" :         "notepad",
-    "description":   "A Chrome App for note taking",
-    "keywords":      ["notepad", "text editor"],
-    "version":       "0.1.0",
+    "name" :         "d3 interactive",
+    "description":   "simple code to show how to build interactive d3 visualization",
+    "keywords":      ["d3", "interactive", "visualization"],
+    "version":       "0.0.1",
     "author":        "Yong Guan <gyong9@gmail.com>",
     "licenses":      [{"type": "MIT", "url": "http://opensource.org/licenses/MIT"}],
-    "repository":    {"type": "git", "url": "https://github.com/yguan/notepad.git"},
+    "repository":    {"type": "git", "url": "https://github.com/yguan/d3-interactive.git"},
     "dependencies": {
         "grunt": "~0.4.1",
         "grunt-contrib-requirejs": "~0.4.1",
