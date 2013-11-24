@@ -21,6 +21,7 @@ module.exports = {
             '<%= folder.src %>/js/extension/lodash.underscore.js',
             '<%= folder.src %>/js/lib/jquery.js',
             '<%= folder.src %>/js/lib/microevent.js',
+            '<%= folder.src %>/js/lib/databind.js',
             '<%= folder.src %>/js/lib/bootstrap.js',
             '<%= folder.src %>/js/lib/crossfilter.js',
             '<%= folder.src %>/js/lib/d3.js',
