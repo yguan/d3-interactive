@@ -8,6 +8,10 @@ It's hosted [here](http://yguan.github.io/repos/d3-interactive/).
 
 [![](http://yguan.github.io/img/projects/d3-interactive.png)](http://yguan.github.io/repos/d3-interactive/)
 
+## Credit
+
+I learned more about crossfilter and got the visualization idea from John Hitchings' [post](http://eng.wealthfront.com/2012/09/explore-your-multivariate-data-with-crossfilter.html).
+
 ## Development
 
 #### Overview of Folder Structure
