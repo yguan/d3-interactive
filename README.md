@@ -22,7 +22,7 @@ It's hosted [here](http://yguan.github.io/repos/d3-interactive/).
   - `extension` Extensions for libraries in the `lib` folder
   - `lib` Libraries
   - `views` Views that render HTML or SVG charts
-    - `template` HTML files for appending to the DOM
+  - `template` HTML files for appending to the DOM
 
 #### Grunt Configuration
 
