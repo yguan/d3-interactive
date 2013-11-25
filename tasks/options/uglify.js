@@ -5,7 +5,7 @@ module.exports = {
     },
     lib: {
         files: {
-            '<%= folder.src %>/js/all-lib-min.js': ['<%= folder.src %>/js/all-lib.js']
+            '<%= folder.src %>/js/all-lib-no-d3-min.js': ['<%= folder.src %>/js/all-lib-no-d3.js']
         }
     }
 };

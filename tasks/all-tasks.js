@@ -1,7 +1,7 @@
 module.exports = function (grunt) {
     grunt.registerTask('default', ['watch']);
 
-    grunt.registerTask('lib', ['concat:lib', 'uglify:lib']);
+    grunt.registerTask('lib', ['concat:libWithoutD3', 'concat:libWithD3', 'uglify:lib', 'concat:libMin']);
 
     grunt.registerTask('cssdev', ['less:dev', 'concat:cssdev']);
 
