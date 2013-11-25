@@ -5,15 +5,15 @@ require.config({
     baseUrl: 'js',
     paths: {
         data: './data',
+        lib: './lib',
         view: './view',
         chart: './chart',
-        template: './view/template',
+        template: './template',
         extension: './extension'
     }
 });
 
 require(['view/all-views'], function (views) {
     'use strict';
-
     views.render();
 });

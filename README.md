@@ -4,7 +4,7 @@ This repository contains the source code showing how to build interactive d3 cha
 
 ## Demo
 
-It's hosted [here](http://yguan.github.io/repos/d3interactive/).
+It's hosted [here](http://yguan.github.io/repos/d3-interactive/).
 
 [![](http://yguan.github.io/img/projects/d3-interactive.png)](http://yguan.github.io/repos/d3-interactive/)
 
