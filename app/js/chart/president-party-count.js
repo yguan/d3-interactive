@@ -20,6 +20,7 @@ define(function (require, exports, module) {
         chart.draw();
         countAxis.titleShape.remove();
 
+        // parties triggers change event when presidentDw.filterByBeforeBirthYear is called
         parties.bind('change', function () {
             chart.data = parties;
             chart.draw();

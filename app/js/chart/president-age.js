@@ -26,6 +26,7 @@ define(function (require, exports, module) {
         chart.draw();
         nameAxis.titleShape.remove();
 
+        // presidents triggers change event when presidentDw.filterByBeforeBirthYear is called
         presidents.bind('change', function () {
             chart.data = presidents.top(Infinity);
             setBounds(chart, chart.data.length * barWidth);
