@@ -47,6 +47,9 @@
 .right {
   float: right;
 }
+input[type='range'] {
+  cursor: pointer;
+}
 .blue-bar rect {
   stroke: white;
   fill: steelblue;
@@ -57,6 +60,9 @@
 }
 .blue-bar text.white-label {
   fill: white;
+}
+.president .label {
+  font-size: 100%;
 }
 .president .tick text,
 .president .axis.title {

@@ -657,6 +657,9 @@ th.hidden-lg,td.hidden-lg{display:table-cell !important;}
 .right {
   float: right;
 }
+input[type='range'] {
+  cursor: pointer;
+}
 .blue-bar rect {
   stroke: white;
   fill: steelblue;
@@ -667,6 +670,9 @@ th.hidden-lg,td.hidden-lg{display:table-cell !important;}
 }
 .blue-bar text.white-label {
   fill: white;
+}
+.president .label {
+  font-size: 100%;
 }
 .president .tick text,
 .president .axis.title {
