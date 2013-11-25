@@ -1,9 +1,16 @@
-<div style="padding: 10px">
-    <div id="president-chart" class="blue-bar"></div>
-    <div style="padding-top: 10px">
-        <div style="width: 515px; clear:both;">
-            <input id="slider" type="range" style="width:100%" min="1789" value="0" max="2012" />
-                <span style="float:left">Presidents starting after: <span id="start-year">1789</span></span>
+<div style="padding: 10px" class="president">
+    <div class="left">
+        <label>Number of Presidents in Parties</label>
+        <div id="party-count-chart"></div>
+        <div style="padding-top: 10px">
+            <div style="width: 515px; clear:both;">
+                <input id="slider" type="range" style="width:100%" min="1733" value="1962" max="1962" />
+                <span style="float:left">Presidents born before: <span id="start-year">1962</span></span>
+            </div>
         </div>
+    </div>
+    <div class="right">
+        <label>Presidents' Ages</label>
+        <div id="age-chart"></div>
     </div>
 </div>

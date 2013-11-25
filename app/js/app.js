@@ -6,7 +6,7 @@ require.config({
     paths: {
         data: './data',
         view: './view',
-        chart: './view/chart',
+        chart: './chart',
         template: './view/template',
         extension: './extension'
     }

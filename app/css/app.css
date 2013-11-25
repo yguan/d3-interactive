@@ -41,6 +41,12 @@
 .no-outline {
   outline: none;
 }
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
 .blue-bar rect {
   stroke: white;
   fill: steelblue;
@@ -51,6 +57,10 @@
 }
 .blue-bar text.white-label {
   fill: white;
+}
+.president .tick text,
+.president .axis.title {
+  font-size: 12px !important;
 }
 .default-font {
   font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
@@ -77,19 +87,6 @@ body {
   color: #868c92;
   background-color: white;
   -webkit-print-color-adjust: exact;
-}
-.main-view {
-  height: 100%;
-  min-height: 100%;
-}
-.notes {
-  margin: 70px;
-}
-.gridster .gs-w,
-.gridster .gs_w {
-  background-color: whitesmoke;
-  list-style: none;
-  cursor: pointer;
 }
 h4 {
   margin: 0 0 10px 0;

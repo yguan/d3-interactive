@@ -25,7 +25,7 @@ module.exports = {
             '<%= folder.src %>/js/lib/bootstrap.js',
             '<%= folder.src %>/js/lib/crossfilter.js',
             '<%= folder.src %>/js/lib/d3.js',
-            '<%= folder.src %>/js/lib/simple.v1.1.2.js',
+            '<%= folder.src %>/js/lib/dimple.v1.1.2.js',
             '<%= folder.src %>/js/lib/require.js'
         ],
         dest: '<%= folder.src %>/js/all-lib.js'

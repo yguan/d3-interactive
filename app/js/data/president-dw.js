@@ -1,25 +1,18 @@
-/*global $,define,require,d3,crossfilter,MicroEvent */
+/*jslint nomen: true*/
+/*global $,define,require,d3,crossfilter,MicroEvent,_ */
 
-define(['exports', 'data/president-data'], function (exports, presidents) {
+define(['exports', 'data/president-data', 'data/president-summary'], function (exports, presidentData, presidentSummary) {
     'use strict';
 
-    var ymdFormat = d3.time.format("%Y-%m-%d"),
-        dimensions,
-        parties;
-
+    var dimensions,
+        parties,
+        presidents,
+        presidentSummaries = presidentSummary.getSummaries(presidentData.data);
 
     function processData(data) {
         var cf,
             byParty,
-            groupByParty,
-            byTookOffice;
-
-        data.forEach(function (p) {
-            p.took_office = ymdFormat.parse(p.took_office);
-            if (p.left_office) {
-                p.left_office = ymdFormat.parse(p.left_office);
-            }
-        });
+            byBirthYear;
 
         // Use the crossfilter force.
         cf = crossfilter(data);
@@ -29,25 +22,36 @@ define(['exports', 'data/president-data'], function (exports, presidents) {
             return p.party;
         });
 
-        byTookOffice = cf.dimension(function (p) {
-            return p.took_office;
+        byBirthYear = cf.dimension(function (p) {
+            return p.birth_year;
         });
 
         return {
             byParty: byParty,
-            byTookOffice: byTookOffice
+            byBirthYear: byBirthYear
         };
     }
 
-    function filterByYearTookOffice(year) {
-        dimensions.byTookOffice.filter([new Date(year, 1, 1), Infinity]);
+    function filterByBeforeBirthYear(year) {
+        dimensions.byBirthYear.filter(function (d) {
+            return d < year;
+        });
         parties.trigger('change');
+        presidents.trigger('change');
     }
 
-    dimensions = processData(presidents.data);
-    parties = dimensions.byParty.group().top(Infinity);
-    MicroEvent.mixin(parties);
+    function loadData() {
+        dimensions = processData(presidentSummaries);
+        parties = dimensions.byParty.group().top(Infinity);
+        presidents = dimensions.byBirthYear;
+        MicroEvent.mixin(parties);
+        MicroEvent.mixin(presidents);
+        filterByBeforeBirthYear(1962);
+    }
+
+    loadData();
 
     exports.parties = parties;
-    exports.filterByYearTookOffice = filterByYearTookOffice;
+    exports.presidents = presidents;
+    exports.filterByBeforeBirthYear = filterByBeforeBirthYear;
 });
