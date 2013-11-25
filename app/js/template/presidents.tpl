@@ -1,5 +1,5 @@
-<div style="padding: 10px" class="president">
-    <div class="left">
+<div class="president">
+    <div class="panel">
         <label>Number of Presidents in Parties</label>
         <div id="party-count-chart"></div>
         <div style="padding-top: 10px">
@@ -10,7 +10,7 @@
             </div>
         </div>
     </div>
-    <div class="right">
+    <div class="panel">
         <label>Presidents' Ages</label>
         <div id="age-chart"></div>
     </div>
