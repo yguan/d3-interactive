@@ -685,6 +685,10 @@ input[type='range'] {
   display: inline-block;
   vertical-align: top;
 }
+.president .year-slider {
+  width: 550px;
+  padding: 10px 0;
+}
 .default-font {
   font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
   font-size: 14px;

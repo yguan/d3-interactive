@@ -19,10 +19,14 @@ define(function (require, exports, module) {
                     death_year: p.death_year,
                     party: p.party,
                     age: p.death_year ? p.death_year - p.birth_year : currentYear - p.birth_year,
-                    firstTookOffice: ymdFormat.parse(p.took_office)
+                    firstTookOffice: ymdFormat.parse(p.took_office).getFullYear(),
+                    left_office: p.left_office ? ymdFormat.parse(p.left_office).getFullYear() : null
                 };
+                record.ageAtBeingPresident = record.firstTookOffice - record.birth_year;
                 summaries.push(record);
                 lookupIndex[p.president] = summaries.length - 1;
+            } else {
+                summaries[lookupIndex[p.president]].left_office = p.left_office ? ymdFormat.parse(p.left_office).getFullYear() : new Date().getFullYear();
             }
         });
         return summaries;
