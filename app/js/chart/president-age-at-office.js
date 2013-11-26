@@ -21,7 +21,7 @@ define(function (require, exports, module) {
 
         setBounds(chart, maxHeightBound);
         firstTookOfficeAxis = chart.addMeasureAxis('x', 'firstTookOffice');
-        firstTookOfficeAxis.tickFormat = 'n';
+        firstTookOfficeAxis.tickFormat = 'g';
         firstTookOfficeAxis.overrideMin = 1788;
         firstTookOfficeAxis.overrideMax = 2014;
         nameAxis = chart.addCategoryAxis('y', 'name');
