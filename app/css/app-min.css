@@ -689,6 +689,9 @@ input[type='range'] {
   width: 550px;
   padding: 10px 0;
 }
+#president-count {
+  color: #008000;
+}
 .default-font {
   font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
   font-size: 14px;

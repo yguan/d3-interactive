@@ -3,10 +3,17 @@
 
 define(function (require, exports, module) {
     'use strict';
+    var mdyFormat = d3.time.format("%x");
+
+    function getAge(dateStr1, dateStr2) {
+        var d1 = mdyFormat.parse(dateStr1),
+            d2 = dateStr2 ? mdyFormat.parse(dateStr2) : new Date(),
+            diff = d2.getTime() - d1.getTime();
+        return Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
+    }
 
     function getSummaries(data) {
-        var ymdFormat = d3.time.format("%Y-%m-%d"),
-            summaries = [],
+        var summaries = [],
             lookupIndex = {},
             record,
             currentYear = new Date().getFullYear();
@@ -14,19 +21,21 @@ define(function (require, exports, module) {
         _.each(data, function (p) {
             if (!lookupIndex.hasOwnProperty(p.president)) {
                 record = {
-                    name: p.president,
-                    birth_year: p.birth_year,
-                    death_year: p.death_year,
-                    party: p.party,
-                    age: p.death_year ? p.death_year - p.birth_year : currentYear - p.birth_year,
-                    firstTookOffice: ymdFormat.parse(p.took_office).getFullYear(),
-                    left_office: p.left_office ? ymdFormat.parse(p.left_office).getFullYear() : null
+                    Name: p.president,
+                    Birth: p.birth,
+                    Death: p.death || 'N/A',
+                    Party: p.party,
+                    Age: getAge(p.birth, p.death),
+                    FirstTookOffice: p.took_office,
+                    'Left Office': p.left_office
                 };
-                record.ageAtBeingPresident = record.firstTookOffice - record.birth_year;
+                record.BirthYear =  mdyFormat.parse(record.Birth).getFullYear();
+                record['Year in First Took Office'] =  mdyFormat.parse(record.FirstTookOffice).getFullYear();
+                record['Age at First Took Office'] = getAge(record.Birth, record.FirstTookOffice);
                 summaries.push(record);
                 lookupIndex[p.president] = summaries.length - 1;
             } else {
-                summaries[lookupIndex[p.president]].left_office = p.left_office ? ymdFormat.parse(p.left_office).getFullYear() : new Date().getFullYear();
+                summaries[lookupIndex[p.president]]['Left Office'] = p.left_office;
             }
         });
         return summaries;

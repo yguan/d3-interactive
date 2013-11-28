@@ -4,11 +4,11 @@ define(function (require, exports, module) {
     'use strict';
 
     function setBounds(chart, heightBound) {
-        chart.setBounds(137, 10, 400, heightBound);
+        chart.setBounds(137, 30, 400, heightBound);
     }
 
     function render(container, presidents) {
-        var svg = dimple.newSvg(container, 700, 700),
+        var svg = dimple.newSvg(container, 700, 720),
             chart = new dimple.chart(svg, presidents.top(Infinity)),
             y,
             ageAxis,
@@ -18,11 +18,11 @@ define(function (require, exports, module) {
             maxHeightBound = barWidth * maxBars;
 
         setBounds(chart, maxHeightBound);
-        ageAxis = chart.addMeasureAxis('x', 'age');
-        nameAxis = chart.addCategoryAxis('y', 'name');
+        ageAxis = chart.addMeasureAxis('x', 'Age');
+        nameAxis = chart.addCategoryAxis('y', 'Name');
         ageAxis.overrideMin = 0;
         ageAxis.overrideMax = 100;
-        chart.addSeries('name', dimple.plot.bar, [ageAxis, nameAxis]);
+        chart.addSeries(['Name', 'Birth', 'Death'], dimple.plot.bar, [ageAxis, nameAxis]);
         chart.draw();
         nameAxis.titleShape.remove();
 

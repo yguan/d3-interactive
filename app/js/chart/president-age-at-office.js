@@ -3,37 +3,34 @@
 define(function (require, exports, module) {
     'use strict';
 
-    function setBounds(chart, heightBound) {
-        chart.setBounds(145, 20, 1350, heightBound);
+    function setBounds(chart, widthBound) {
+        chart.setBounds(145, 130, widthBound, 220);
     }
 
     function render(container, presidents) {
-        var svg = dimple.newSvg(container, 1500, 700),
+        var barWidth = 32,
+            maxBars = 43,
+            maxWidthBound = barWidth * maxBars,
+            svg = dimple.newSvg(container, maxWidthBound + 150, 400),
             chart = new dimple.chart(svg, presidents.top(Infinity)),
             y,
             firstTookOfficeAxis,
-            nameAxis,
             ageAtBeingPresidentAxis,
-            barWidth = 14,
-            maxBars = 44,
-            maxHeightBound = barWidth * maxBars,
             series;
 
-        setBounds(chart, maxHeightBound);
-        firstTookOfficeAxis = chart.addMeasureAxis('x', 'firstTookOffice');
+        setBounds(chart, maxWidthBound);
+        firstTookOfficeAxis = chart.addCategoryAxis('x', 'Year in First Took Office');
         firstTookOfficeAxis.tickFormat = 'g';
-        firstTookOfficeAxis.overrideMin = 1788;
-        firstTookOfficeAxis.overrideMax = 2014;
-        nameAxis = chart.addCategoryAxis('y', 'name');
-        ageAtBeingPresidentAxis = chart.addMeasureAxis('z', 'ageAtBeingPresident');
-        ageAtBeingPresidentAxis.overrideMin = 10;
-        ageAtBeingPresidentAxis.overrideMax = 140;
-        series = chart.addSeries('name', dimple.plot.bubble, [firstTookOfficeAxis, nameAxis, ageAtBeingPresidentAxis]);
+        ageAtBeingPresidentAxis = chart.addMeasureAxis('y', 'Age at First Took Office');
+        ageAtBeingPresidentAxis.overrideMin = 0;
+        ageAtBeingPresidentAxis.overrideMax = 75;
+        series = chart.addSeries(['Name', 'Death', 'Age'], dimple.plot.bar, [firstTookOfficeAxis, ageAtBeingPresidentAxis]);
         chart.draw();
 
         // presidents triggers change event when presidentDw.filterByBeforeBirthYear is called
         presidents.bind('change', function () {
             chart.data = presidents.top(Infinity);
+            setBounds(chart, chart.data.length * barWidth);
             chart.draw();
         });
     }

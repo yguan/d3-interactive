@@ -14,11 +14,13 @@ define(function (require, exports, module) {
         partyCountChart.render('#party-count-chart', presidentDW.parties);
         ageChart.render('#age-chart', presidentDW.presidents);
         ageAtOfficeChart.render('#age-at-office-chart', presidentDW.presidents);
+        $('#president-count').text(presidentDW.presidents.top(Infinity).length);
 
         $('#slider').change(function (ev) {
             var year = $(this).val();
             $('#start-year').text(year);
             presidentDW.filterByBeforeBirthYear(year);
+            $('#president-count').text(presidentDW.presidents.top(Infinity).length);
         });
     }
 

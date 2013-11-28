@@ -19,11 +19,11 @@ define(['exports', 'data/president-data', 'data/president-summary'], function (e
 
         // Create a dimension by political party
         byParty = cf.dimension(function (p) {
-            return p.party;
+            return p.Party;
         });
 
         byBirthYear = cf.dimension(function (p) {
-            return p.birth_year;
+            return p.BirthYear;
         });
 
         return {
