@@ -16,7 +16,7 @@ define(function (require, exports, module) {
         ageAtOfficeChart.render('#age-at-office-chart', presidentDW.presidents);
         $('#president-count').text(presidentDW.presidents.top(Infinity).length);
 
-        $('#slider').change(function (ev) {
+        $('#slider').on('input change', function (ev) {
             var year = $(this).val();
             $('#start-year').text(year);
             presidentDW.filterByBeforeBirthYear(year);
